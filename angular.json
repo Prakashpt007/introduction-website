@@ -7,7 +7,7 @@
 	},
 	"newProjectRoot": "projects",
 	"projects": {
-		"quantumsoft-user-info": {
+		"introduction-website": {
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:component": {
@@ -80,10 +80,10 @@
 					"builder": "@angular/build:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "quantumsoft-user-info:build:production"
+							"buildTarget": "introduction-website:build:production"
 						},
 						"development": {
-							"buildTarget": "quantumsoft-user-info:build:development"
+							"buildTarget": "introduction-website:build:development"
 						}
 					},
 					"defaultConfiguration": "development"
