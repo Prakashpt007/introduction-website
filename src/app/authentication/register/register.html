@@ -1,0 +1,217 @@
+<app-public-header />
+<div class="container">
+	<div class="centerContainer" style="min-height:auto; margin: 3rem;">
+
+		<form class="formContainer" style="width: 850px;" [formGroup]="registerForm" (ngSubmit)="submitRegisterDetails()">
+			<h2 class="formContainerTitle">Registration Form</h2>
+			<div class="row">
+
+				<!-- First Name -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-3">
+					<div class="input-group" [ngClass]="{'is-invalid': userDetailSubmit() && f['fName'].errors}">
+						<div class="form-floating">
+							<input type="text" class="form-control" id="exampleInputfName1" maxlength="25" minlength="3" formControlName="fName" [ngClass]="{'is-invalid': userDetailSubmit() && f['fName'].errors}" [autocomplete]="0" placeholder="Please Enter First Name" aria-describedby="fNameHelp">
+							<label for="exampleInputfName1" class="form-label">First Name <span class="required">*</span></label>
+						</div>
+						@if(userDetailSubmit() && f['fName'].errors){
+						<div class="invalid-feedback">
+							@if (f['fName'].errors['required']) {
+							<div>Please Enter First Name</div>
+							}
+							@if ( f['fName'].errors['minlength']) {
+							<div>Please Enter Minimum 3 Character(s) First Name</div>
+							}
+							@if (f['fName'].errors['maxlength']) {
+							<div>Please Enter Maximum 25 Character(s) First Name</div>
+							}
+						</div>
+						}
+					</div>
+				</div>
+
+				<!-- Last Name -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-3">
+					<div class="input-group" [ngClass]="{'is-invalid': userDetailSubmit() && f['lName'].errors}">
+						<div class="form-floating">
+							<input type="text" class="form-control" id="exampleInputlName1" maxlength="25" minlength="3" formControlName="lName" [ngClass]="{'is-invalid': userDetailSubmit() && f['lName'].errors}" [autocomplete]="0" placeholder="Please Enter Last Name" aria-describedby="lNameHelp">
+							<label for="exampleInputlName1" class="form-label">Last Name <span class="required">*</span></label>
+						</div>
+						@if(userDetailSubmit() && f['lName'].errors){
+						<div class="invalid-feedback">
+							@if (f['lName'].errors['required']) {
+							<div>Please Enter Last Name</div>
+							}
+							@if ( f['lName'].errors['minlength']) {
+							<div>Please Enter Minimum 3 Character(s) Last Name</div>
+							}
+							@if (f['lName'].errors['maxlength']) {
+							<div>Please Enter Maximum 25 Character(s) Last Name</div>
+							}
+						</div>
+						}
+					</div>
+				</div>
+
+				<!-- Date of Birth -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-3">
+					<div class="input-group" [ngClass]="{'is-invalid': userDetailSubmit() && f['dob'].errors}">
+						<div class="form-floating">
+							<input type="date" class="form-control" id="exampleInputdob1" formControlName="dob" [ngClass]="{'is-invalid': userDetailSubmit() && f['dob'].errors}" [autocomplete]="0" placeholder="Please Enter Date of Birth" aria-describedby="dobHelp">
+							<label for="exampleInputdob1" class="form-label">Date of Birth <span class="required">*</span></label>
+						</div>
+						@if(userDetailSubmit() && f['dob'].errors){
+						<div class="invalid-feedback">
+							@if (f['dob'].errors['required']) {
+							<div>Please Enter Date of Birth</div>
+							}
+						</div>
+						}
+					</div>
+				</div>
+
+				<!-- Mobile Number -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-3">
+					<div class="input-group">
+						<div class="form-floating">
+							<input type="tel" class="form-control" id="exampleInputmobile1" maxlength="10" minlength="10" formControlName="mobile" [ngClass]="{'is-invalid': userDetailSubmit() && f['mobile'].errors}" [autocomplete]="0" placeholder="Please Enter Mobile Number" aria-describedby="mobileHelp">
+							<label for="exampleInputmobile1" class="form-label">Mobile Number <span class="required">*</span></label>
+						</div>
+						@if (userDetailSubmit() && f['mobile'].errors) {
+						<div class="invalid-feedback">
+							@if (f['mobile'].errors['required']) {
+							<div>Please Enter Mobile No.</div>
+							}
+							@if (f['mobile'].errors['pattern']) {
+							<div>Please Enter Valid Mobile No.</div>
+							}
+							@if (f['mobile'].errors['minlength']) {
+							<div>Please Enter Valid 10 Digit Phone No.</div>
+							}
+							@if (f['mobile'].errors['maxlength']) {
+							<div>Please Enter Valid 10 Digit Mobile No.</div>
+							}
+						</div>
+						}
+					</div>
+				</div>
+
+				<!-- Email Address -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-12 col-xxl-12 mb-3">
+					<div class="input-group" [ngClass]="{'is-invalid': userDetailSubmit() && f['email'].errors}">
+						<!-- <div class="input-group-text">+91</div> -->
+						<div class="form-floating">
+							<input type="email" class="form-control" id="exampleInputEmail1" maxlength="100" minlength="6" formControlName="email" [ngClass]="{'is-invalid': userDetailSubmit() && f['email'].errors}" [autocomplete]="0" placeholder="Please Enter Email" aria-describedby="emailHelp">
+							<label for="exampleInputEmail1" class="form-label">Email Address <span class="required">*</span></label>
+						</div>
+						<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+						@if(userDetailSubmit() && f['email'].errors){
+						<div class="invalid-feedback">
+							@if (f['email'].errors['required']) {
+							<div>Please Enter Email Address</div>
+							}
+							@if (f['email'].errors['email']) {
+							<div>Please Enter Valid Email Address</div>
+							}
+							@if (f['email'].errors['pattern']) {
+							<div>Please Enter Valid Email Address</div>
+							}
+							@if ( f['email'].errors['minlength']) {
+							<div>Please Enter Minimum 6 Character(s) Email Address</div>
+							}
+							@if (f['email'].errors['maxlength']) {
+							<div>Please Enter Maximum 100 Character(s) Email Address</div>
+							}
+						</div>
+						}
+					</div>
+				</div>
+
+
+
+			</div>
+			<div class="row">
+				<!-- Password -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-3">
+					<div class="input-group" [ngClass]="{'is-invalid': userDetailSubmit() && f['password'].errors}">
+						<div class="form-floating">
+							<input class="form-control" id="password" [type]="passwordShow" formControlName="password" placeholder="Enter New Password" [ngClass]="{'is-invalid': userDetailSubmit() && f['password'].errors}">
+
+							<label for="exampleInputlName1" class="form-label">Password <span class="required">*</span></label>
+						</div>
+						<span class="input-group-text" style="cursor: pointer;" (click)="this.passwordShow == 'password'? this.passwordShow = 'text': this.passwordShow = 'password'">
+							<i class="fa {{passwordShow=='password'? 'fa-eye': 'fa-eye-slash'}}"></i>
+						</span>
+						@if (userDetailSubmit() && f['password'].errors) {
+						<div class="invalid-feedback">
+							@if (f['password'].errors['required']) {
+							<div>Please Enter New Password</div>
+							}
+						</div>
+						}
+					</div>
+				</div>
+
+				<!-- Confirm Password -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-3">
+					<div class="input-group" [ngClass]="{'is-invalid': userDetailSubmit() && f['confirmPassword'].errors}">
+						<div class="form-floating">
+							<input class="form-control" id="confirmPassword" [type]="confirmPasswordShow" formControlName="confirmPassword" placeholder="Confirm Password" [ngClass]="{'is-invalid': userDetailSubmit() && f['confirmPassword'].errors}">
+							<label for="exampleInputlName1" class="form-label">Confirm Password <span class="required">*</span></label>
+						</div>
+						<span class="input-group-text" style="cursor: pointer;" (click)="this.confirmPasswordShow == 'password'? this.confirmPasswordShow = 'text': this.confirmPasswordShow = 'password'">
+							<i class="fa {{confirmPasswordShow=='password'? 'fa-eye': 'fa-eye-slash'}}"></i>
+						</span>
+						@if (userDetailSubmit() && f['confirmPassword'].errors) {
+						<div class="invalid-feedback">
+							@if (f['confirmPassword'].errors['required']) {
+							<div>Please Confirm Password</div>
+							}
+
+							@if (f['confirmPassword'].errors['matching']) {
+							<div>Passwords Does Not Match</div>
+							}
+						</div>
+						}
+					</div>
+				</div>
+
+
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-3">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="termsCheck" formControlName="terms" [ngClass]="{'is-invalid': userDetailSubmit() && f['terms'].errors}">
+						<label class="form-check-label" for="termsCheck">
+							I agree to the <a href="#" target="_blank">Terms and Conditions</a> <span class="required">*</span>
+						</label>
+
+
+						@if (userDetailSubmit() && f['terms'].errors) {
+						<div class="invalid-feedback">
+							@if (f['terms'].errors['required']) {
+							<div>Please accept the Terms and Conditions</div>
+							}
+						</div>
+						}
+					</div>
+				</div>
+
+				<div class="d-flex justify-content-between align-items-center">
+					@if(formSubmitStatus()){
+					<button type="submit" [disabled]="true" class="btn btn-primary" style="--bs-btn-padding-x: 1.5rem;">
+						<div class="spinner-border" role="status">
+							<span class="visually-hidden">Wait...</span>
+						</div>
+						Wait... Registering User
+					</button>
+					} @else{
+					<button type="submit" class="btn btn-primary" style="--bs-btn-padding-x: 1.5rem;">Register</button>
+					}
+
+					<div style="font-size: 0.875rem;text-align: right;line-height: normal;">
+						<p class="m-0">Already registered?</p>
+						<p class="m-0"><a class="bs-link" [routerLink]="['/login']">Back to login</a></p>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

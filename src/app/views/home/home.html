@@ -1,0 +1,357 @@
+<!-- <pre>{{pageData() | json}}</pre> -->
+
+@if(homePageDataStatus){
+<hr>
+<div class="container">
+	<h2>Welcome, {{pageData().f_Name}}!</h2>
+	<div class="row">
+		<div class="col-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+			<div class="card rounded-3 shadow w-auto">
+
+				<div class="card-body">
+					<h4 class="card-title">Personal Information</h4>
+					<table>
+						<tbody>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-user"></i>
+										Full Name:
+									</div>
+								</th>
+
+								<td>{{pageData().f_Name}} {{pageData().l_Name}}</td>
+							</tr>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-regular fa-calendar"></i>
+										Date of Birth:
+									</div>
+								</th>
+								<td>
+									{{pageData().dob | date}}
+								</td>
+							</tr>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-regular fa-envelope"></i>
+										Email:
+									</div>
+								</th>
+								<td>
+									<a [href]="'mailto:' + pageData().email">{{pageData().email}}</a>
+								</td>
+							</tr>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-phone"></i>
+										Mobile:
+									</div>
+								</th>
+
+								<td>
+									<a [href]="'tel:' + pageData().mobile">{{pageData().mobile}}</a>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+			<div class="card rounded-3 shadow w-auto">
+
+				<div class="card-body">
+					<h4 class="card-title">Education Details</h4>
+					<table>
+						<tbody>
+
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-graduation-cap"></i>
+										Qualification:
+									</div>
+								</th>
+								<td>{{pageData().qualification}}</td>
+							</tr>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-user-tie"></i>
+										Role:
+									</div>
+								</th>
+								<td>
+									{{pageData().role}}
+								</td>
+							</tr>
+
+
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-business-time"></i>
+										Experience:
+									</div>
+								</th>
+								<td>
+									<div>{{pageData().experience}} - years</div>
+								</td>
+							</tr>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-laptop-code"></i>
+										Skills:
+									</div>
+								</th>
+								<td>
+									{{pageData().skills}}
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+			<div class="card rounded-3 shadow w-auto">
+
+				<div class="card-body">
+					<h4 class="card-title">Address</h4>
+					<table>
+						<tbody>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-location-dot"></i>
+										Street
+									</div>
+								</th>
+								<td>
+									{{pageData().street}}
+								</td>
+							</tr>
+							<tr>
+								<th>City:</th>
+								<td>{{pageData().city}}</td>
+							</tr>
+							<tr>
+								<th>State:</th>
+								<td>{{pageData().state}}</td>
+							</tr>
+							<tr>
+								<th>Country:</th>
+								<td>{{pageData().country}}</td>
+							</tr>
+							<tr>
+								<th>Pincode:</th>
+								<td>{{pageData().pincode}}</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>
+
+} @else{
+<hr>
+<div class="container">
+	<h2 class="text-center">No User Info found</h2>
+</div>
+
+
+<div class="container d-none">
+	<h2>Welcome, {{pageData().f_Name}}!</h2>
+	<div class="row">
+		<div class="col-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+			<div class="card rounded-3 shadow w-auto">
+
+				<div class="card-body">
+					<h3 class="card-title">Personal Information</h3>
+					<table>
+						<tbody>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-user"></i>
+										Full Name:
+									</div>
+								</th>
+
+								<td>{{pageData().f_Name}} {{pageData().l_Name}}</td>
+							</tr>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-regular fa-calendar"></i>
+										Date of Birth:
+									</div>
+								</th>
+								<td>
+									{{pageData().dob | date}}
+								</td>
+							</tr>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-regular fa-envelope"></i>
+										Email:
+									</div>
+								</th>
+								<td>
+									<a [href]="'mailto:' + pageData().email">{{pageData().email}}</a>
+								</td>
+							</tr>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-phone"></i>
+										Mobile:
+									</div>
+								</th>
+
+								<td>
+									<a [href]="'tel:' + pageData().mobile">{{pageData().mobile}}</a>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+			<div class="card rounded-3 shadow w-auto">
+
+				<div class="card-body">
+					<h3 class="card-title">Education Details</h3>
+					<table>
+						<tbody>
+
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-graduation-cap"></i>
+										Qualification:
+									</div>
+								</th>
+								<td>{{pageData().qualification}}</td>
+							</tr>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-user-tie"></i>
+										Role:
+									</div>
+								</th>
+								<td>
+									{{pageData().role}}
+								</td>
+							</tr>
+
+
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-business-time"></i>
+										Experience:
+									</div>
+								</th>
+								<td>
+									<div>{{pageData().experience}} - years</div>
+								</td>
+							</tr>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-laptop-code"></i>
+										Skills:
+									</div>
+								</th>
+								<td>
+									{{pageData().skills}}
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+			<div class="card rounded-3 shadow w-auto">
+
+				<div class="card-body">
+					<h3 class="card-title">Address</h3>
+					<table>
+						<tbody>
+							<tr>
+								<th>
+									<div class="d-flex gap-1 align-items-center">
+										<i class="fa-solid fa-location-dot"></i>
+										Street
+									</div>
+								</th>
+								<td>
+									{{pageData().street}}
+								</td>
+							</tr>
+							<tr>
+								<th>City:</th>
+								<td>{{pageData().city}}</td>
+							</tr>
+							<tr>
+								<th>State:</th>
+								<td>{{pageData().state}}</td>
+							</tr>
+							<tr>
+								<th>Country:</th>
+								<td>{{pageData().country}}</td>
+							</tr>
+							<tr>
+								<th>Pincode:</th>
+								<td>{{pageData().pincode}}</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>
+
+}
+
+
+<!-- Name: {{pageData().f_Name}} {{pageData().l_Name}}<br>
+		Date of Birth: {{pageData().dob}}<br>
+		Email: {{pageData().email}}<br>
+		Mobile: {{pageData.mobile}}<br>
+		Qualification: {{pageData.qualification}}<br>
+		Role: {{pageData.role}}<br>
+		Experience: {{pageData.experience}}<br>
+		Skills: {{pageData.skills}}<br>
+		Street: {{pageData.street}}<br>
+		City: {{pageData.city}}<br>
+		State: {{pageData.state}}<br>
+		Country: {{pageData.country}}<br>
+		Pincode: {{pageData.pincode}}<br> -->

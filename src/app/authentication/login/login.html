@@ -1,0 +1,83 @@
+<app-public-header />
+<div class="container">
+	<div class="centerContainer" style="min-height:auto; margin: 3rem;">
+
+		<form class="formContainer" [formGroup]="loginForm" (ngSubmit)="submitLoginDetails()">
+			<h2 class="formContainerTitle">Login Form</h2>
+			<div class="mb-3">
+				<div class="input-group" [ngClass]="{'is-invalid': userDetailSubmit() && f['email'].errors}">
+					<!-- <div class="input-group-text">+91</div> -->
+					<div class="form-floating">
+						<input type="email" class="form-control" id="exampleInputEmail1" maxlength="100" minlength="6" formControlName="email" [ngClass]="{'is-invalid': userDetailSubmit() && f['email'].errors}" [autocomplete]="0" placeholder="Please Enter Email" aria-describedby="emailHelp">
+						<label for="exampleInputEmail1" class="form-label">Email Address <span class="required">*</span></label>
+					</div>
+					<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+					@if(userDetailSubmit() && f['email'].errors){
+					<div class="invalid-feedback">
+						@if (f['email'].errors['required']) {
+						<div>Please Enter Email Address</div>
+						}
+						@if (f['email'].errors['email']) {
+						<div>Please Enter Valid Email Address</div>
+						}
+						@if (f['email'].errors['pattern']) {
+						<div>Please Enter Valid Email Address</div>
+						}
+						@if ( f['email'].errors['minlength']) {
+						<div>Please Enter Minimum 6 Character(s) Email Address</div>
+						}
+						@if (f['email'].errors['maxlength']) {
+						<div>Please Enter Maximum 100 Character(s) Email Address</div>
+						}
+					</div>
+					}
+				</div>
+
+			</div>
+			<!-- Password -->
+			<div class="mb-3">
+				<div class="input-group" [ngClass]="{'is-invalid': userDetailSubmit() && f['password'].errors}">
+					<div class="form-floating">
+						<input class="form-control" id="password" [type]="passwordShow()" formControlName="password" maxlength="25" minlength="5" [ngClass]="{'is-invalid': userDetailSubmit() && f['password'].errors}" placeholder="Password">
+						<label class="floatingInput" for="password">Password <span class="required">*</span></label>
+					</div>
+					<span class="input-group-text" style="cursor: pointer;" (click)="passToggle()">
+						<i class="fa {{passwordShow()=='password'? 'fa-eye': 'fa-eye-slash'}}"></i>
+					</span>
+				</div>
+
+				@if(userDetailSubmit() && f['password'].errors){
+
+				<div class="invalid-feedback">
+					@if(f['password'].errors['required']){
+					<div>Please Enter Password</div>
+					}
+					@if ( f['password'].errors['minlength']) {
+					<div>Please Enter Minimum 5 Character(s) Password</div>
+					}
+					@if (f['password'].errors['maxlength']) {
+					<div>Please Enter Maximum 25 Character(s) Password</div>
+					}
+				</div>
+				}
+			</div>
+			<div class="d-flex justify-content-between align-items-center">
+				@if(formSubmitStatus()){
+				<button type="submit" [disabled]="true" class="btn btn-primary" style="--bs-btn-padding-x: 1.5rem;">
+					<div class="spinner-border" role="status">
+						<span class="visually-hidden">Wait...</span>
+					</div>
+					Please wait
+				</button>
+				} @else{
+				<button type="submit" class="btn btn-primary" style="--bs-btn-padding-x: 1.5rem;">Login</button>
+				}
+
+				<div style="font-size: 0.875rem;text-align: right;line-height: normal;">
+					<p class="m-0">Not registered?</p>
+					<p class="m-0"><a class="bs-link" [routerLink]="['/register']">Click here to register</a></p>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

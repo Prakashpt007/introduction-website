@@ -1,0 +1,11 @@
+<div class="container-fluid p-0 d-flex">
+	<aside class="main-container col" style="overflow-y: auto;">
+		<app-header />
+		<div class="spacers">
+			<!-- <main class="mainContainer" id="yourDivElementId" [style.height.px]="middleHeight()" style="border-bottom-right-radius: 0;border-bottom-left-radius: 0;"> -->
+			<main class="mainContainer" id="yourDivElementId" style="border-bottom-right-radius: 0;border-bottom-left-radius: 0;">
+				<router-outlet #o="outlet"></router-outlet>
+			</main>
+		</div>
+	</aside>
+</div>

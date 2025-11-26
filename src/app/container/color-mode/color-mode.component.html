@@ -1,0 +1,63 @@
+<div class="dropdown d-none">
+	<div class="dropdown-toggle mode-btn btn btn-sm btn-primary" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+
+		<!-- <div class="dropdown-toggle mode-btn btn btn-sm btn-primary" type="button" data-bs-toggle="dropdown" data-bs-auto-close="inside"> -->
+		<div class="theme-icon-active" style="display: contents">
+
+			@if (theme=='light') {
+
+			<i class="bi bi-sun-fill"></i>
+			<!-- Light -->
+
+			} @else if(theme=='dark') {
+
+			<i class="bi bi-moon-fill"></i>
+			<!-- Dark -->
+
+			} @else if(theme=='auto') {
+
+			<i class="bi bi-circle-half"></i>
+			<!-- Auto -->
+
+			} @else {
+
+			}
+
+		</div>
+	</div>
+	<ul class="dropdown-menu">
+		<li>
+			<button type="button" class="dropdown-item" [ngClass]="theme=='light'? 'active' : ''" (click)="changeTheme('light')">
+				<i class="bi bi-sun-fill" data-toggle="tooltip" data-placement="bottom" title="Light Mode"></i>
+				Light
+			</button>
+		</li>
+		<li>
+			<button type="button" class="dropdown-item" [ngClass]="theme=='dark'? 'active' : ''" (click)="changeTheme('dark')">
+				<i class="bi bi-moon-fill" data-toggle="tooltip" data-placement="bottom" title="Dark Mode"></i>
+				Dark
+			</button>
+		</li>
+
+		<li>
+			<button type="button" class="dropdown-item" [ngClass]="theme=='auto'? 'active' : ''" (click)="changeTheme('auto')">
+				<i class="bi bi-circle-half" data-toggle="tooltip" data-placement="bottom" title="Dark Mode"></i>
+				Auto
+			</button>
+		</li>
+	</ul>
+</div>
+
+<button class="btn btn-sm btn-secondary bg-gradient mode-btn" (click)="toggleTheme()">
+	@switch (theme) {
+	@case ('light') {
+	<i class="bi bi-sun-fill" title="Light Mode"></i>
+	}
+	@case ('dark') {
+	<i class="bi bi-moon-fill" title="Dark Mode"></i>
+	}
+	@case ('auto') {
+	<i class="bi bi-circle-half" title="Auto Mode"></i>
+	}
+	}
+</button>

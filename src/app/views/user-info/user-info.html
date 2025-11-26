@@ -1,0 +1,214 @@
+<div class="container">
+	<div class="centerContainer" style="min-height:auto; margin: 3rem;">
+		<form class="formContainer" style="width: 850px;" [formGroup]="userInfoForm" (ngSubmit)="submitUserInfo()">
+			<h2 class="formContainerTitle">Please Complete Your Information</h2>
+
+			<h5>Personal Details:</h5>
+			<div class="row">
+				<!-- Qualification -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+					<div class="form-floating">
+						<select class="form-select" formControlName="qualification" aria-label="Qualification" [ngClass]="{'is-invalid': userDetailSubmit() && f['qualification'].errors}">
+							<option value="" disabled selected>Select Qualification</option>
+							@for (item of qualifications; track $index) {
+							<option [value]="item">{{item}}</option>
+							}
+						</select>
+						<label>Qualification <span class="required">*</span></label>
+					</div>
+
+					@if(userDetailSubmit() && f['qualification'].errors){
+					<div class="invalid-feedback">
+						@if (f['qualification'].errors['required']) {
+						<div>Please Select Qualification</div>
+						}
+					</div>
+					}
+				</div>
+
+
+				<!-- Role -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+					<div class="form-floating">
+						<select class="form-select" formControlName="role" aria-label="role" [ngClass]="{'is-invalid': userDetailSubmit() && f['role'].errors}">
+							<option value="" disabled selected>Select role</option>
+							@for (item of roles; track $index) {
+							<option [value]="item">{{item}}</option>
+							}
+						</select>
+						<label>Role <span class="required">*</span></label>
+					</div>
+
+					@if(userDetailSubmit() && f['role'].errors){
+					<div class="invalid-feedback">
+						@if (f['role'].errors['required']) {
+						<div>Please Select Role</div>
+						}
+					</div>
+					}
+				</div>
+
+				<!-- Experience -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+					<div class="form-floating">
+						<input type="number" class="form-control" formControlName="experience" placeholder="Enter Experience" [ngClass]="{'is-invalid': userDetailSubmit() && f['experience'].errors}" />
+						<label>Experience <span class=" required">*</span></label>
+					</div>
+
+					@if(userDetailSubmit() && f['experience'].errors){
+					<div class="invalid-feedback">
+						@if (f['experience'].errors['required']) {
+						<div>Please Enter Experience</div>
+						}
+					</div>
+					}
+
+				</div>
+
+				<!-- Skills -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+					<div class="form-floating">
+						<input type="text" class="form-control" formControlName="skills" placeholder="Enter Skills" [ngClass]="{'is-invalid': userDetailSubmit() && f['skills'].errors}" />
+						<label>Skills <span class="required">*</span></label>
+					</div>
+
+					@if(userDetailSubmit() && f['skills'].errors){
+					<div class="invalid-feedback">
+						@if (f['skills'].errors['required']) {
+						<div>Please Select Skills</div>
+						}
+					</div>
+					}
+				</div>
+			</div>
+			<!-- Address -->
+
+			<h5 class="mt-3">Address:</h5>
+
+			<div formGroupName="address" class="row">
+				<!-- Street -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
+					<div class="form-floating">
+						<textarea class="form-control" autosize maxlength="100" minlength="10" formControlName="street" placeholder="Street" [ngClass]="{'is-invalid': userDetailSubmit() && address['street'].errors}"></textarea>
+						<label>Street <span class="required">*</span></label>
+					</div>
+
+					@if(userDetailSubmit() && address['street'].errors){
+					<div class="invalid-feedback">
+						@if (address['street'].errors['required']) {
+						<div>Please Enter Street Address</div>
+						}
+						@if (address['street'].errors['minlength']) {
+						<div>Please Enter Minimum 10 Character(s) Street Address</div>
+						}
+						@if (address['street'].errors['maxlength']) {
+						<div>Please Enter Maximum 100 Character(s) Street Address</div>
+						}
+					</div>
+					}
+
+				</div>
+
+
+				<!-- Country -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+					<div class="form-floating">
+						<select class="form-select" formControlName="country" aria-label="country" [ngClass]="{'is-invalid': userDetailSubmit() && address['country'].errors}">
+							<option value="" disabled selected>Select Country</option>
+							@for (item of countries; track $index) {
+							<option [value]="item">{{item}}</option>
+							}
+						</select>
+						<label>Country <span class="required">*</span></label>
+					</div>
+
+					@if(userDetailSubmit() && address['country'].errors){
+					<div class="invalid-feedback">
+						@if (address['country'].errors['required']) {
+						<div>Please Select Country</div>
+						}
+					</div>
+					}
+				</div>
+
+
+				<!-- State -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+					<div class="form-floating">
+						<select class="form-select" formControlName="state" aria-label="state" [ngClass]="{'is-invalid': userDetailSubmit() && address['state'].errors}">
+							<option value="" disabled selected>Select State</option>
+							@for (item of states; track $index) {
+							<option [value]="item">{{item}}</option>
+							}
+						</select>
+						<label>State <span class="required">*</span></label>
+					</div>
+					@if(userDetailSubmit() && address['state'].errors){
+					<div class="invalid-feedback">
+						@if (address['state'].errors['required']) {
+						<div>Please Select State</div>
+						}
+					</div>
+					}
+				</div>
+				<!-- City -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+					<div class="form-floating">
+						<input type="text" class="form-control" formControlName="city" maxlength="40" minlength="4" placeholder="City" [ngClass]="{'is-invalid': userDetailSubmit() && address['city'].errors}" />
+						<label>City Name <span class="required">*</span></label>
+					</div>
+
+					@if(userDetailSubmit() && address['city'].errors){
+					<div class="invalid-feedback">
+						@if (address['city'].errors['required']) {
+						<div>Please Enter City Name</div>
+						}
+						@if (address['city'].errors['minlength']) {
+						<div>Please Enter Minimum 4 Character(s) City Name</div>
+						}
+						@if (address['city'].errors['maxlength']) {
+						<div>Please Enter Maximum 40 Character(s) City Name</div>
+						}
+
+					</div>
+					}
+
+				</div>
+
+				<!-- Pincode -->
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+					<div class="form-floating">
+						<input type="tel" class="form-control" formControlName="pincode" placeholder="Pincode" minlength="6" maxlength="6" [ngClass]="{'is-invalid': userDetailSubmit() && address['pincode'].errors}" />
+						<label>Pincode <span class="required">*</span></label>
+					</div>
+
+					@if(userDetailSubmit() && address['pincode'].errors){
+					<div class="invalid-feedback">
+						@if (address['pincode'].errors['required']) {
+						<div>Please Enter Pincode</div>
+						}
+						@if (address['pincode'].errors['minlength']) {
+						<div>Pincode must be 6 digits</div>
+						}
+						@if (address['pincode'].errors['maxlength']) {
+						<div>Pincode must be 6 digits</div>
+						}
+
+					</div>
+					}
+				</div>
+			</div>
+
+			@if(formSubmitStatus()){
+			<button type="button" [disabled]="true" class="btn btn-primary" style="--bs-btn-padding-x: 1.5rem;">
+				<div class="spinner-border" role="status">
+					<span class="visually-hidden">Wait...</span>
+				</div>
+				Wait... Saving Details
+			</button>
+			} @else{
+			<button type="submit" class="btn btn-primary" style="--bs-btn-padding-x: 1.5rem;">Save Details</button>
+			}
+		</form>
+	</div>
+</div>

@@ -1,0 +1,40 @@
+table {
+	tbody {
+		tr {
+
+			td,
+			th {
+				padding: 8px 12px;
+				vertical-align: top;
+			}
+		}
+	}
+}
+
+.card {
+	margin: 1rem 0 0.5rem 0 !important;
+
+	.card-title {
+		color: light-dark(var(--bs-link-color), var(--bs-info-text-emphasis));
+	}
+}
+
+@media only screen and (max-width: 992px) {
+
+	.card {
+		margin: 1rem !important;
+	}
+
+	table {
+		tbody {
+			tr {
+
+				td,
+				th {
+					padding: 8px 12px;
+				}
+			}
+		}
+	}
+
+}

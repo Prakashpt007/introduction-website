@@ -1,0 +1,32 @@
+<div class="container-fluid">
+	<header style="    padding: 1rem;
+    display: flex;
+    justify-content: space-between;">
+		<!-- <h1 class="m-0">Welcome to the Header Component</h1> -->
+		<div class="logo">
+			<img src="https://www.quantumsofttechnologies.com/img/logo.png" alt="Logo" width="200" class="img-fluid" />
+		</div>
+		<div class="right">
+			<div class="logout">
+				<div class="btn btn-danger bg-gradient btn-sm d-flex gap-1 align-items-center" (click)="confirmLogout()">
+					<i class="fa-solid fa-right-from-bracket"></i>
+					<span class="desktop-view-only">Logout</span>
+				</div>
+			</div>
+			<app-color-mode />
+		</div>
+
+	</header>
+</div>
+
+<ng-template #logoutConfirmation let-c="close" let-d="dismiss">
+	<div class="modal-header text-white bg-danger py-2" style="--bs-modal-header-padding: 0.5rem 1rem;">
+		<h6 class="modal-title">Confirm Action</h6>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">You're about to log out. Are you sure?</div>
+	<div class="modal-footer d-flex justify-content-between">
+		<button type="button" class="btn btn-danger btn-sm" (click)="c('Confirm Logout')">Yes, Logout..!</button>
+		<button type="button" class="btn btn-sm btn-secondary bg-gradient" (click)="d('Cancel Action')">Cancel</button>
+	</div>
+</ng-template>
