@@ -1,4 +1,3 @@
 [build]
+  command = "ng build --configuration production"
   publish = "dist/introduction-website/browser"
-  # You might also define your build command here if it's not already set in the UI:
-  # command = "npm run build"
