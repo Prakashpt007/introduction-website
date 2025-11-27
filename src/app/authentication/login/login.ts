@@ -39,8 +39,8 @@ export class Login {
 	ngOnInit(): void {
 
 		this.loginForm = this.formBuilder.group({
-			email: ["devUser@gmail.com", [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net|org|edu|gov|info|biz|co|us|uk|ca|au|in|de|cn|jp|ai|blog|tech|online|app|io)$/), Validators.minLength(6), Validators.maxLength(100)]],
-			password: ["123456", [Validators.required, Validators.minLength(5), Validators.maxLength(25)]]
+			email: ["", [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net|org|edu|gov|info|biz|co|us|uk|ca|au|in|de|cn|jp|ai|blog|tech|online|app|io)$/), Validators.minLength(6), Validators.maxLength(100)]],
+			password: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(25)]]
 		});
 	}
 
