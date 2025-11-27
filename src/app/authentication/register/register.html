@@ -1,6 +1,6 @@
 <app-public-header />
 <div class="container">
-	<div class="centerContainer" style="min-height:auto; margin: 3rem;">
+	<div class="centerContainer">
 
 		<form class="formContainer" style="width: 850px;" [formGroup]="registerForm" (ngSubmit)="submitRegisterDetails()">
 			<h2 class="formContainerTitle">Registration Form</h2>
@@ -194,7 +194,7 @@
 					</div>
 				</div>
 
-				<div class="d-flex justify-content-between align-items-center">
+				<div class="formBtnSection d-flex justify-content-between align-items-center">
 					@if(formSubmitStatus()){
 					<button type="submit" [disabled]="true" class="btn btn-primary" style="--bs-btn-padding-x: 1.5rem;">
 						<div class="spinner-border" role="status">
